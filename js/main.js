@@ -108,11 +108,15 @@ const getBuildings= () =>{
 
 
 function filterBuildings() {
-	buildings=buildings.sort((a1,a2)=>{a2.height_ft-a1.height_ft});
+	buildings=buildings.sort(sortHeights);
+}
+
+function sortHeights(a,b){
+	return b.height_ft-a.height_ft;
 }
 
 function renderBar(buildings){
-	const width=500;
+	const width=600;
 	const height=500;
 	const svg=d3.select('.building-bar')
 		.append('svg')
